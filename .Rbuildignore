@@ -3,4 +3,4 @@
 ^archive$
 ^\\.gitignore$
 ^\\.project$
-^\\.SDS_Store$
+^\\.DS_Store$

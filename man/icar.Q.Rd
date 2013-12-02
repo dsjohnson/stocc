@@ -1,0 +1,36 @@
+\name{icar.Q}
+\alias{icar.Q}
+\title{Creates the inverse covariance matrix for an intrinsic conditionally
+autoregressive spatial model.}
+\usage{
+  icar.Q(xy, threshold, rho = 1, fun = FALSE)
+}
+\arguments{
+  \item{xy}{An n x 2 matrix of spatial coordinates}
+
+  \item{threshold}{Distance threshold for neighborhood
+  definition}
+
+  \item{rho}{The autoregressive parameter. Defaults to 1,
+  which is the Intrinsic Conditionally AutoRegressive model
+  (ICAR)}
+
+  \item{fun}{If \code{TRUE} this function returns a
+  function of rho that generates the precision matrix of a
+  ICAR process}
+}
+\value{
+  An n x n matrix
+}
+\description{
+  %% ~~ A concise (1-5 lines) description of what the
+  function does. ~~
+}
+\details{
+  Constructs the inverse covariance matrix (aside from
+  scaling) for the ICAR model
+}
+\author{
+  Devin S. Johnson <devin.johnson@noaa.gov>
+}
+

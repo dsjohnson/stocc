@@ -1,0 +1,29 @@
+\docType{data}
+\name{occupancyData}
+\alias{occupancyData}
+\title{Simulated occupancy for the 40 x 40 study area.}
+\format{A data frame with 1600 observations on the following 5 variables.
+\describe{ \item{site}{Site labels} \item{x}{Longitude
+coordinate} \item{y}{Latitude coordinate} \item{psi}{True
+probability of occupancy} \item{psi.fix}{The fixed effects portion of the occupancy process map}
+\item{occ}{True realized occupancy} }}
+\description{
+  This data represnts truth with regards to occupancy in
+  the simulated study area. The probability of occupancy
+  was simulated as \code{pnorm(0, X%*%gamma + K alpha, 1,
+  lower=FALSE)}, where \code{K} and \code{alpha} were
+  constructed from a reduced rank is an ICAR process with
+  precision (\code{tau}) = 0.3 and \code{gamma = c(-1, 0,
+  0, 1)}
+}
+\examples{
+data(occupancyData)
+##
+## Blue points represent realized occupancy.
+##
+image(x=seq(0.5,39.5,1), y=seq(0.5,39.5,1), z=t(matrix(occupancyData$psi,40)),
+	xlab="x", ylab="y", main="Occupancy process with realized occupancy")
+points(occupancyData$x[occupancyData$occ==1], occupancyData$y[occupancyData$occ==1], pch=20, cex=0.25, col="blue")
+}
+\keyword{datasets}
+

@@ -1,0 +1,7 @@
+export(icar.Q)
+export(make.so.data)
+export(spatial.occupancy)
+import(Matrix)
+import(coda)
+import(fields)
+import(truncnorm)

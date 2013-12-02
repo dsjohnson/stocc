@@ -1,0 +1,129 @@
+\name{spatial.occupancy}
+\alias{spatial.occupancy}
+\title{Fit a spatial occupancy model using Gibbs sampling}
+\usage{
+  spatial.occupancy(detection.model, occupancy.model,
+    spatial.model, so.data, prior, control,
+    initial.values = NULL)
+}
+\arguments{
+  \item{detection.model}{A formula object describing the
+  detection portion of the occupancy model. The variables
+  described by the detection model are located in the
+  \code{visit} data frame of the \code{so.data}.}
+
+  \item{occupancy.model}{A formula object describing the
+  fixed effects portion of the spatial occupancy process.
+  The variables described by the occupancy model are
+  located in the \code{site} data frame of an
+  \code{so.data} object.}
+
+  \item{spatial.model}{A named list object describing the
+  spatial component of the occupancy process. Currently the
+  only possible models are ICAR, restricted spatial
+  regression, process convolution models, and no spatial
+  model (i.e., eta = 0). Thus,
+  \code{spatial.model=list(model="icar", threshold= ,
+  rho=1)}, \code{spatial.model=list(model="rsr",
+  threshold=, moran.cut=)},
+  \code{spatial.model=list(model="proc.conv", knots=)}, and
+  \code{spatial.model=list(model="none")} are the only
+  forms that are accepted at present.  The \code{threshold}
+  component is used the create neighborhoods in the ICAR
+  and RSR models.  All sites within distance
+  \code{threshold} of site i are considered neighbors of
+  site i.  The \code{moran.cut} component is the cut-off
+  for selecting the spatial harmonics used in the
+  restricted spatial regression model. If \code{moran.cut}
+  is greater than 1, is is taken to be the lowest index
+  (1,...,N) of the included freqiencies. Hughes and Haran
+  (2012; J. Royal Stat. Soc. B, to appear) recommend 0.1N
+  (i.e., smoothest 10 percent of the harmonics). Here 0.1
+  is used as the default, meaning all harmonic surfaces
+  with spatial correlation >0.1 will be used. This is a
+  rougher surface than suggested by Hughes and Haran (2012)
+  The item \code{knots} are xy locations of the discrete
+  process convolution knots.}
+
+  \item{so.data}{An \code{so.data} object containing the
+  observed occupancies, detection covariates, site
+  covariates, and site coordinates. This is created via the
+  \code{\link{make.so.data}}}
+
+  \item{prior}{A named list that provides the parameter
+  values for the prior distributions. At the current time
+  the elements of the list must contain \code{a.tau} and
+  \code{b.tau} which are the parameters for the gamma prior
+  on the spatial process parameter in the occupancy model.
+  Other elements may include \code{Q.b} and \code{mu.b}
+  which are the tolerance and mean for the beta vector
+  (detection parameters). Also \code{Q.g} and \code{mu.g}
+  which are the prior parameters for the occupancy model.
+  If the Q.b and Q.g are left out, the default is Q.b = 0
+  and Q.g = 0 (i.e., flat priors). If mu.b and mu.g are
+  left out, the default is zero vectors.}
+
+  \item{control}{A named list with the control parameters
+  for the MCMC. The elements of the list must include: (1)
+  \code{burnin} is the number of iterations of burnin, (2)
+  \code{iter} is the total number of iterations retained
+  for the MCMC sample, and (3) \code{thin} is the thining
+  rate of the chain. The real number of MCMC iterations is
+  equal to \code{iter*thin} of which \code{iter - burnin}
+  are retained for posterior summary.}
+
+  \item{initial.values}{A named list that can include any
+  or all of the following vectors or scalers (1)
+  \code{beta}, a vector of initial values for the detection
+  parameters, (2) \code{gamma}, a vector or initial values
+  for the occupancy model, and (3) \code{tau}, an initial
+  value for the spatial precision parameter.}
+}
+\value{
+  A list with the following elements: \item{beta}{An object
+  of class \code{mcmc}. The detection model parameters.}
+  \item{gamma}{An object of class \code{mcmc}. The
+  occupancy model parameters.} \item{psi}{An object of
+  class \code{mcmc}. The occupancy generating process}
+  \item{real.occ}{An object of class \code{mcmc}. The
+  realized occupancy at the time of the survey}
+  \item{tau}{An object of class \code{mcmc}. The variance
+  parameter for the spatial model} \item{occupancy.df}{A
+  data frame with the spatial coordinates, site id, and
+  posterior mean and variance of psi, eta, and real.occ}
+  \item{D.m}{The posterior predictive loss criterion of
+  Gelfand and Ghosh (1998; Biometrika 85:1-11) for model
+  selection. The criterion is a combination of a
+  goodness-of-fit measure, G.m, and a complexity measure,
+  P.m, similar information criteria such as AIC and BIC.
+  D.m = G.m + P.m. Lower values of D.m imply lower expected
+  loss in predicting new data with the posterior model
+  parameters.} \item{G.m}{The goodness-of-fit portion of
+  D.m} \item{P.m}{The model complexity component of D.m}
+  \item{detection.model}{The detection model call.}
+  \item{occupancy.model}{The occupancy model call.}
+  \item{model}{A character version of the joint occupancy
+  and detection model call. This is useful for saving
+  results.}
+}
+\description{
+  This function fits a spatial occupancy model where the
+  true occupancy is a function of a spatial process.  An
+  efficient Gibbs sampling algorithm is used by formulating
+  the detection and occupancy process models with a probit
+  model instead of the traditional logit based model.
+  Specifically, the model fit is \deqn{ f(x) = \left\{
+  \begin{array}{ll} 0 & x < 0 \\ 1 & x \ge 0 \end{array}
+  \right. }{ (non-Latex version) }
+}
+\details{
+  A Gibbs sampler is run to draw an MCMC sample of the
+  spatial occupancy parameters \code{beta} (detection
+  parameters), \code{gamma} (the occupancy parameters),
+  \code{psi} (the model occupancy generating process), and
+  the realized occupancy.
+}
+\author{
+  Devin S. Johnson <devin.johnson@noaa.gov>
+}
+

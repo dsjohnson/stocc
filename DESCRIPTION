@@ -1,0 +1,22 @@
+Package: stocc
+Type: Package
+Title: Fit a spatial occupancy model via Gibbs sampling
+Version: 1.1
+Date: 2013-2-1
+Author: Devin S. Johnson
+Maintainer: Devin S. Johnson <devin.johnson@noaa.gov>
+Description: Fit a spatial-temporal occupancy models using
+    a probit formulation instead of a traditional logit
+    model.
+License: Unlimited
+Depends:
+    truncnorm,
+    coda,
+    Matrix,
+    fields
+LazyLoad: yes
+Collate:
+    'icar.Q.R'
+    'make.so.data.R'
+    'stocc-package.R'
+    'spatial.occupancy.R'

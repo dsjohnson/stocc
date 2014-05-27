@@ -190,14 +190,19 @@ function(detection.model, occupancy.model, spatial.model, so.data, prior, contro
 	I.n <- Matrix(diag(n.site))
 	
 	# Starting values
-	if(is.null(initial.values$beta)) b <- rep(0,ncol(Xy))
-  else b <- initial.values$beta
-  if(length(b)!=ncol(Xy)) stop("Error: Length of initial values for beta does not match the detection model!\n")
-	if(is.null(initial.values$gamma)) g <- rep(0,ncol(Xz))
-	else g <- initial.values$gamma
+	if(is.null(initial.values$beta)) {
+    b <- rep(0,ncol(Xy))
+	} else b <- initial.values$beta
+  if(length(b)!=ncol(Xy)) {
+    stop("Error: Length of initial values for beta does not match the detection model!\n")
+  }
+	if(is.null(initial.values$gamma)) {
+    g <- rep(0,ncol(Xz))
+	} else g <- initial.values$gamma
 	if(length(g)!=ncol(Xz)) stop("Error: Length of initial values for gamma does not match the occupancy model!\n")
-	if(is.null(initial.values$tau)) tau <- 1
-	else tau <- initial.values$tau 
+	if(is.null(initial.values$tau)) {
+    tau <- 1
+	} else tau <- initial.values$tau 
 	eta <- rep(0,n.site)
 	
   

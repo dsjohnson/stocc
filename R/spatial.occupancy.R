@@ -3,13 +3,7 @@
 #' This function fits a spatial occupancy model where the true occupancy is a
 #' function of a spatial process.  An efficient Gibbs sampling algorithm is
 #' used by formulating the detection and occupancy process models with a probit
-#' model instead of the traditional logit based model. Specifically, the model fit is
-#' \deqn{ f(x) = \left\{
-#' \begin{array}{ll}
-#' 0 & x < 0 \\
-#' 1 & x \ge 0
-#' \end{array}
-#' \right. }{ (non-Latex version) }
+#' model instead of the traditional logit based model. 
 #' 
 #' A Gibbs sampler is run to draw an MCMC sample of the spatial occupancy
 #' parameters \code{beta} (detection parameters), \code{gamma} (the occupancy
@@ -202,7 +196,7 @@ function(detection.model, occupancy.model, spatial.model, so.data, prior, contro
 	if(is.null(initial.values$gamma)) g <- rep(0,ncol(Xz))
 	else g <- initial.values$gamma
 	if(length(g)!=ncol(Xz)) stop("Error: Length of initial values for gamma does not match the occupancy model!\n")
-	if(is.null(initial.values$beta)) tau <- 1
+	if(is.null(initial.values$tau)) tau <- 1
 	else tau <- initial.values$tau 
 	eta <- rep(0,n.site)
 	
@@ -355,8 +349,10 @@ function(detection.model, occupancy.model, spatial.model, so.data, prior, contro
 						paste(c("OCC", as.character(occupancy.model)[-1]),collapse="~")
 					),
 					collapse='-'
-					)
+					),
+      so.data=so.data
 			)
+  
 	class(out) <- "spat.occ"
 	return(out)
 }

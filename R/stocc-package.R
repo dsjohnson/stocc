@@ -7,7 +7,7 @@
 #' model.
 #' 
 #' \tabular{ll}{ Package: \tab stocc\cr Type: \tab Package\cr Version: \tab
-#' 1.1\cr Date: \tab 2013-2-1\cr License: \tab Unlimited\cr LazyLoad: \tab
+#' 1.21\cr Date: \tab 5-27-2014\cr License: \tab Unlimited\cr LazyLoad: \tab
 #' yes\cr }
 #' 
 #' @name stocc-package
@@ -69,10 +69,14 @@ NULL
 #' @name occupancyData
 #' @docType data
 #' @format A data frame with 1600 observations on the following 5 variables.
-#' \describe{ \item{site}{Site labels} \item{x}{Longitude
-#' coordinate} \item{y}{Latitude coordinate} \item{psi}{True
-#' probability of occupancy} \item{psi.fix}{The fixed effects portion of the occupancy process map}
-#' \item{occ}{True realized occupancy} }
+#' \describe{ 
+#' \item{site}{Site labels} 
+#' \item{x}{Longitude coordinate} 
+#' \item{y}{Latitude coordinate} 
+#' \item{psi}{True probability of occupancy} 
+#' \item{psi.fix}{The fixed effects portion of the occupancy process map}
+#' \item{occ}{True realized occupancy} 
+#' }
 #' @examples
 #' 
 #' data(occupancyData)
@@ -96,7 +100,7 @@ NULL
 #' continuous one (cov1) and a factor (cov2). These are NOT the same as the
 #' cov1 and cov2 of the habData data frame. The coefficients used were
 #' \code{beta = c(1, 0, 0.5, 1, 0)}. Thus detection given occupancy of site i
-#' at time j = \code{pnorm(0, X%*%beta, lower=FALSE)}.
+#' at time j = \code{pnorm(0,X\%*\%beta,lower=FALSE)}.
 #' 
 #' 
 #' @name visitData

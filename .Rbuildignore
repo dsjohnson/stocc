@@ -4,3 +4,4 @@
 ^\\.gitignore$
 ^\\.project$
 ^\\.DS_Store$
+^demoResults$

@@ -31,37 +31,106 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <h1>
+<a name="welcome-to-stocc" class="anchor" href="#welcome-to-stocc"><span class="octicon octicon-link"></span></a>Welcome to stocc</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>This is the home of the R package <em>stocc</em> for Bayesian inference of spatial occupancy data</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<h2>
+<a name="installing-stocc" class="anchor" href="#installing-stocc"><span class="octicon octicon-link"></span></a>Installing stocc</h2>
+
+<p>There are two basic methods to install the stocc package, from within R itself using the devtools package or downloading a binary appropriate to your operating system. If you are using a windows machine it is possible that you will need <a href="http://cran.r-project.org/bin/windows/Rtools/">Rtools</a> installed to build and install the package. There is no compiled code in stocc. </p>
+
+<h3>
+<a name="using-devtools-guaranteed-up-to-date-version" class="anchor" href="#using-devtools-guaranteed-up-to-date-version"><span class="octicon octicon-link"></span></a>Using devtools (guaranteed up-to-date version)</h3>
+
+<p>You can obtain the stocc package using the GitHub installation function within the devtools R package. If devtools is not installed, it can be installed from CRAN by typing <code>install.packages("devtools")</code> from within the R console.</p>
+
+<p>If devtools is installed, to install stocc, open the R console and type</p>
+
+<pre><code>&gt; devtools::install_github("stocc", username="dsjohnson")
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h3>
+<a name="downloading-a-binary-file" class="anchor" href="#downloading-a-binary-file"><span class="octicon octicon-link"></span></a>Downloading a binary file</h3>
+
+<p>If you are using a Windows or Mac OSX machine, you can also download prebuilt binary files for installation. The Mac OSX version is available <a href="https://github.com/dsjohnson/stocc/releases/download/v1.21/stocc.tgz">here</a>. The windows version is downloaded <a href="https://github.com/dsjohnson/stocc/releases/download/v1.21/stocc.zip">here</a>. If you are running a Linux machine, see the following section. <em>Note</em>: make sure your browser does not try to automatically unpack the file (this is the default for Safari, go into preferences to change this feature). </p>
+
+<p>After you download the file, open R and set the working directory (e.g., using <code>setwd("path/to/download/dir/")</code>). Once this is set, run</p>
+
+<pre><code>&gt; install.packages("stocc.zip", repos=NULL)
+</code></pre>
+
+<p>If you have a mac replace with "stocc.zip" with stocc.tgz".</p>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="downloading-the-source-file" class="anchor" href="#downloading-the-source-file"><span class="octicon octicon-link"></span></a>Downloading the source file</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>Source files for each version can be downloaded <a href="https://github.com/dsjohnson/stocc/releases/download/v1.21/stocc.tar.gz">here</a>. The desired file can be downloaded and installed in the same way as with the binaries, e.g., </p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<pre><code>&gt; install.packages("stocc.tar.gz", repos=NULL, type="source")
+</code></pre>
 
 <h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a name="is-it-installed" class="anchor" href="#is-it-installed"><span class="octicon octicon-link"></span></a>Is it installed?</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>However you choose to install you should see some output that, hopefully, ends with:</p>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<pre><code>* installing *source* package 'stocc' ...
+** R
+** data
+** demo
+Warning in do_install_source(pkg_name, instdir, pkg, desc) :
+  NAs introduced by coercion
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (stocc)
+&gt; 
+</code></pre>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>In which case, everything is installed.</p>
+
+<h2>
+<a name="using-stocc" class="anchor" href="#using-stocc"><span class="octicon octicon-link"></span></a>Using stocc</h2>
+
+<p>To begin using stocc simply open the R console and type </p>
+
+<pre><code>&gt; library(stocc)
+</code></pre>
+
+<p>Following this you should see this output:</p>
+
+<pre><code>Loading required package: truncnorm
+Loading required package: coda
+Loading required package: lattice
+Loading required package: Matrix
+Loading required package: fields
+Loading required package: spam
+Loading required package: grid
+Spam version 0.41-0 (2014-02-26) is loaded.
+Type 'help( Spam)' or 'demo( spam)' for a short introduction 
+and overview of this package.
+Help for individual functions is also obtained by adding the
+suffix '.spam' to the function name, e.g. 'help( chol.spam)'.
+
+Attaching package: ‘spam’
+
+The following objects are masked from ‘package:base’:
+
+    backsolve, forwardsolve
+
+Loading required package: maps
+stocc 1.21 (5-27-2014) 
+ Type 'demo(package='stocc')' to see a list of demos for this package.
+ BE CAREFUL! The MCMC code can take a while to run if you start the demo.
+ The raw code for the demos can be found by typing 'system.file('demo', package='stocc')'
+&gt; 
+</code></pre>
+
+<p>It will throw some errors if the required packages are not installed. Just install these separately using, e.g.,  <code>install.packages("coda")</code>. From here you can run the demo using simulated data with, e.g., <code>demo(simDataMCMC)</code>. <em>This command runs a full demo with MCMC, so, it might take a while!</em> </p>
       </section>
     </div>
 

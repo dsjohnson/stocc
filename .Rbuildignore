@@ -1,7 +1,0 @@
-^.*\.Rproj$
-^\.Rproj\.user$
-^archive$
-^\\.gitignore$
-^\\.project$
-^\\.DS_Store$
-^demoResults$

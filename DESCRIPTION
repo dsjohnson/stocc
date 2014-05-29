@@ -1,8 +1,8 @@
 Package: stocc
 Type: Package
 Title: Fit a spatial occupancy model via Gibbs sampling
-Version: 1.21
-Date: 5-27-2014
+Version: 1.22
+Date: 5-29-2014
 Author: Devin S. Johnson
 Maintainer: Devin S. Johnson <devin.johnson@noaa.gov>
 Description: Fit a spatial-temporal occupancy models using

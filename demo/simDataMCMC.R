@@ -14,7 +14,7 @@ fit <- spatial.occupancy(
   spatial.model = list(model="rsr", threshold=1, moran.cut=0.1*nrow(habData)), 
   so.data = make.so.data(visitData, habData, names),
   prior = list(a.tau=0.5, b.tau=0.00005),
-  control = list(burnin=10000/5, iter=40000/5, thin=5)
+  control = list(burnin=1000/5, iter=4000/5, thin=5)
   )
 
 ## Model fit -- Minimum posterior predictive loss

@@ -1,7 +1,7 @@
 #' Creates the inverse covariance matrix for an intrinsic conditionally
 #' autoregressive spatial model.
 #' 
-#' %% ~~ A concise (1-5 lines) description of what the function does. ~~
+#' This function creates the ICAR precision matrices used in the spatial models
 #' 
 #' Constructs the inverse covariance matrix (aside from scaling) for the ICAR
 #' model
@@ -18,7 +18,6 @@
 icar.Q <-
 function(xy, threshold, rho=1, fun=FALSE)
 {
-	require(Matrix, quietly=TRUE)
 	thresh <- threshold
 	distmat <- as.matrix(dist(cbind(xy[,1], xy[,2])))
 	dist.ind <- (distmat <= thresh)*1.0

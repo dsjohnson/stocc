@@ -82,10 +82,6 @@
 spatial.occupancy <-
   function(detection.model, occupancy.model, spatial.model, so.data, prior, control, initial.values=NULL){
     #Packages
-    require(truncnorm, quietly=TRUE)
-    require(coda, quietly=TRUE)
-    require(Matrix, quietly=TRUE)
-    if(spatial.model$model=="proc.conv") require(fields, quietly=TRUE)
     
     #Matrix construction, etc...
     site <- so.data$site
@@ -314,7 +310,6 @@ spatial.occupancy <-
       if(100*(i/iter) >= 10 & (100*(i/iter))%%10==0) cat("\n", 100*(i/iter), "% completed\n")
     }	
     
-    require(coda)
     beta <- mcmc(beta)
     gamma <- mcmc(gamma)
     psi <- mcmc(psi)

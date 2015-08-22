@@ -7,7 +7,7 @@
 #' model.
 #' 
 #' \tabular{ll}{ Package: \tab stocc\cr Type: \tab Package\cr Version: \tab
-#' 1.23\cr Date: \tab 7-29-2014\cr License: \tab Unlimited\cr LazyLoad: \tab
+#' 1.30\cr Date: \tab August 21, 2015\cr License: \tab file LICENSE\cr LazyLoad: \tab
 #' yes\cr }
 #' 
 #' @name stocc-package
@@ -17,7 +17,9 @@
 #' 
 #' Maintainer: Devin S. Johnson <devin.johnson@@noaa.gov>
 #' 
-#' 
+#' @importFrom graphics boxplot 
+#' @importFrom stats density dist knots model.matrix 
+#'           pnorm rbinom rgamma rnorm sd terms
 NULL
 
 

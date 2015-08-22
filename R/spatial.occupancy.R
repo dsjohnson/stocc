@@ -25,10 +25,8 @@
 #' component is used the create neighborhoods in the ICAR and RSR models.  All sites
 #' within distance \code{threshold} of site i are considered neighbors of site
 #' i.  The \code{moran.cut} component is the cut-off for selecting 
-#' the spatial harmonics used in the restricted spatial regression model. If \code{moran.cut} is greater than
-#' 1, is is taken to be the lowest index (1,...,N) of the included freqiencies. Hughes and Haran (2012; J. Royal Stat. Soc. B, to appear)
-#' recommend 0.1N (i.e., smoothest 10 percent of the harmonics). Here 0.1 is used as the default, meaning all harmonic surfaces
-#' with spatial correlation >0.1 will be used. This is a rougher surface than suggested by Hughes and Haran (2012)
+#' the spatial harmonics used in the restricted spatial regression model. The value must be between 1 and N and implies that
+#' the eigen vectors associated with the largest \code{moan.cut} eigen values are used for the basis functions.
 #' The item \code{knots} are xy locations of the discrete process
 #' convolution knots. 
 #' @param so.data An \code{so.data} object containing the observed occupancies,
@@ -78,7 +76,7 @@
 #' @import coda
 #' @import Matrix
 #' @import fields
-# @import irlba
+#' @import rARPACK
 spatial.occupancy <-
   function(detection.model, occupancy.model, spatial.model, so.data, prior, control, initial.values=NULL){
     #Packages
@@ -126,26 +124,19 @@ spatial.occupancy <-
     }
     else if(spatial.model$model=="rsr"){
       cat("\nCreating (R)estricted (S)patial (R)egression matrices ...\n")
-      #require(irlba)
+      if(as.integer(spatial.model$moran.cut)<1  | as.integer(spatial.model$moran.cut)>n.site){
+        stop("Invalid value for 'moran.cut' specified. See documentation\n")
+      }
       Q <- Matrix(icar.Q(xy,spatial.model$threshold, rho=1))
       A <- Matrix(diag(diag(Q)) - Q)
       P <- diag(n.site) - Xz %*% solve(crossprod(Xz), t(Xz))
-      #if(spatial.model$operator=="moran") 
       Op <- (nrow(A)/sum(A))*(P %*% (A %*% P))
-      e <- eigen(Op, symmetric=TRUE)
-      
-      if(spatial.model$moran.cut < 1 & spatial.model$moran.cut >= -1){ind.freq <- e$values >= spatial.model$moran.cut}
-      else if(spatial.model$moran.cut > 1){ind.freq <- c(1:spatial.model$moran.cut)}
-      else stop("Invalid value for 'moran.cut' specified. See documentation\n")
-      K <- e$vectors[,ind.freq]
-      KtK <- diag(ncol(K)) #crossprod(K)
+      e <- rARPACK::eigs(Op, as.integer(spatial.model$moran.cut))
+      K <- e$vectors
+      KtK <- diag(ncol(K)) 
       Q.alpha <- as.matrix(t(K) %*% Q %*% K)
       a <- rep(0,nrow(Q.alpha))
     }
-    else if(spatial.model$model=="none") cat("\nWarning: No random effect spatial model fit!\n\n")
-    else stop("Unreccognized spatio-temporal model specified")
-    
-    
     
     ## Priors
     a.tau <- prior$a.tau

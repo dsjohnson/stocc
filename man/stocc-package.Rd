@@ -4,7 +4,7 @@
 \name{stocc-package}
 \alias{stocc}
 \alias{stocc-package}
-\title{R package for fitting spatial-temporal occupancy models via Gibbs sampling}
+\title{Fit a Spatial Occupancy Model via Gibbs Sampling}
 \description{
 This package contains functions that fit a spatial occupancy model where the
 true occupancy is a function of a spatial process.  An efficient Gibbs

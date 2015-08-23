@@ -1,4 +1,4 @@
-#' R package for fitting spatial-temporal occupancy models via Gibbs sampling
+#' Fit a Spatial Occupancy Model via Gibbs Sampling
 #' 
 #' This package contains functions that fit a spatial occupancy model where the
 #' true occupancy is a function of a spatial process.  An efficient Gibbs

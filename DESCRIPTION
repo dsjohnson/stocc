@@ -8,7 +8,7 @@ Maintainer: Devin S. Johnson <devin.johnson@noaa.gov>
 Description: Fit a spatial-temporal occupancy models using
     a probit formulation instead of a traditional logit
     model.
-License: file LICENSE
+License: CC0
 Imports:
     truncnorm,
     coda,

@@ -9,8 +9,8 @@ There are two basic methods to install the stocc package, from within R itself u
 If you want to install the latest stable version you can use the `devtools` package. This is probably the best place to get the package because I'm usually tardy with getting it up to CRAN. Anyway do this...
 
 ```
-> library(devtools)
-> devtools::install_github("dsjohnson/stocc")
+library(devtools)
+devtools::install_github("dsjohnson/stocc")
 ```
 
 Hopefully, you see something like this and you are good to go:

@@ -1,8 +1,8 @@
 Package: stocc
 Type: Package
 Title: Fit a spatial occupancy model via Gibbs sampling
-Version: 1.30
-Date: 2015-08-21
+Version: 1.31
+Date: 2018-03-22
 Author: Devin S. Johnson
 Maintainer: Devin S. Johnson <devin.johnson@noaa.gov>
 Description: Fit a spatial-temporal occupancy models using
@@ -15,4 +15,6 @@ Imports:
     Matrix,
     fields,
     rARPACK
+Suggests: 
+    coda
 LazyLoad: yes

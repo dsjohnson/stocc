@@ -7,7 +7,7 @@
 #' model.
 #' 
 #' \tabular{ll}{ Package: \tab stocc\cr Type: \tab Package\cr Version: \tab
-#' 1.30\cr Date: \tab August 21, 2015\cr License: \tab file LICENSE\cr LazyLoad: \tab
+#' 1.30\cr Date: \tab August 21, 2015\cr License: \tab CC0\cr LazyLoad: \tab
 #' yes\cr }
 #' 
 #' @name stocc-package

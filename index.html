@@ -54,7 +54,7 @@
 <h3>
 <a name="downloading-a-binary-file" class="anchor" href="#downloading-a-binary-file"><span class="octicon octicon-link"></span></a>Downloading a binary file</h3>
 
-<p>If you are using a Windows or Mac OSX machine, you can also download prebuilt binary files for installation. The Mac OSX version is available <a href="https://github.com/dsjohnson/stocc/releases/download/v1.22/stocc.tgz">here</a>. The windows version is downloaded <a href="https://github.com/dsjohnson/stocc/releases/download/v1.22/stocc.zip">here</a>. If you are running a Linux machine, see the following section. <em>Note</em>: make sure your browser does not try to automatically unpack the file (this is the default for Safari, go into preferences to change this feature). </p>
+<p>If you are using a Windows or Mac OSX machine, you can also download prebuilt binary files for installation. The Mac OSX version is available <a href="https://github.com/dsjohnson/stocc/releases/download/v1.31/stocc_1.31.tgz">here</a>. The windows version is downloaded <a href="https://github.com/dsjohnson/stocc/releases/download/v1.31/stocc_1.31.zip">here</a>. If you are running a Linux machine, see the following section. <em>Note</em>: make sure your browser does not try to automatically unpack the file (this is the default for Safari, go into preferences to change this feature). </p>
 
 <p>After you download the file, open R and set the working directory (e.g., using <code>setwd("path/to/download/dir/")</code>). Once this is set, run</p>
 
@@ -66,7 +66,7 @@
 <h3>
 <a name="downloading-the-source-file" class="anchor" href="#downloading-the-source-file"><span class="octicon octicon-link"></span></a>Downloading the source file</h3>
 
-<p>Source files for each version can be downloaded <a href="https://github.com/dsjohnson/stocc/releases/download/v1.22/stocc.tar.gz">here</a>. The desired file can be downloaded and installed in the same way as with the binaries, e.g., </p>
+<p>Source files for each version can be downloaded <a href="https://github.com/dsjohnson/stocc/releases/download/v1.31/stocc_1.31.tar.gz">here</a>. The desired file can be downloaded and installed in the same way as with the binaries, e.g., </p>
 
 <pre><code>&gt; install.packages("stocc.tar.gz", repos=NULL, type="source")
 </code></pre>
@@ -103,27 +103,7 @@ Warning in do_install_source(pkg_name, instdir, pkg, desc) :
 
 <p>Following this you should see this output:</p>
 
-<pre><code>Loading required package: truncnorm
-Loading required package: coda
-Loading required package: lattice
-Loading required package: Matrix
-Loading required package: fields
-Loading required package: spam
-Loading required package: grid
-Spam version 0.41-0 (2014-02-26) is loaded.
-Type 'help( Spam)' or 'demo( spam)' for a short introduction 
-and overview of this package.
-Help for individual functions is also obtained by adding the
-suffix '.spam' to the function name, e.g. 'help( chol.spam)'.
-
-Attaching package: ‘spam’
-
-The following objects are masked from ‘package:base’:
-
-    backsolve, forwardsolve
-
-Loading required package: maps
-stocc 1.22 (5-29-2014) 
+<pre><code>stocc 1.31 (2018-03-22) 
  Type 'demo(package='stocc')' to see a list of demos for this package.
  BE CAREFUL! The MCMC code can take a while to run if you start the demo.
  The raw code for the demos can be found by typing 'system.file('demo', package='stocc')'

@@ -225,7 +225,7 @@ spatial.occupancy <-
       #Update b
       idx <- visit$site.idx %in% (site$site.idx[z==1])
       #Q.b <- crossprod(Xy[idx,])
-      V.b.inv <- crossprod(Xy[idx,],Xy[idx,]) + Q.b
+      V.b.inv <- zapsmall(crossprod(Xy[idx,],Xy[idx,]) + Q.b)
       m.b <- solve(V.b.inv, crossprod(Xy[idx,],y.tilde[idx])+crossprod(Q.b,mu.b))
       b <- m.b + solve(chol(V.b.inv), rnorm(ncol(Xy),0,1))
       

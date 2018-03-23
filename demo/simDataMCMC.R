@@ -1,4 +1,5 @@
 library(stocc)
+library(coda)
 data(habData)
 data(visitData)
 

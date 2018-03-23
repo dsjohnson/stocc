@@ -1,6 +1,6 @@
 Package: stocc
 Type: Package
-Title: Fit a spatial occupancy model via Gibbs sampling
+Title: Fit a Spatial Occupancy Model via Gibbs Sampling
 Version: 1.31
 Date: 2018-03-22
 Author: Devin S. Johnson
@@ -15,6 +15,5 @@ Imports:
     Matrix,
     fields,
     rARPACK
-Suggests: 
-    coda
 LazyLoad: yes
+RoxygenNote: 6.0.1

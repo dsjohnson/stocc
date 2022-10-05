@@ -19,7 +19,7 @@
 #' @param spatial.model A named list object describing the spatial component of
 #' the occupancy process. Currently the only possible models are ICAR, restricted spatial regression,
 #' process convolution models, and no spatial model (i.e., eta = 0). Thus, \code{spatial.model=list(model="icar",
-#' threshold= , rho=1)}, \code{spatial.model=list(model="rsr", threshold=, moran.cut=)}, 
+#' threshold= )}, \code{spatial.model=list(model="rsr", threshold=, moran.cut=)}, 
 #' \code{spatial.model=list(model="proc.conv", knots=)}, and \code{spatial.model=list(model="none")}
 #' are the only forms that are accepted at present.  The \code{threshold}
 #' component is used the create neighborhoods in the ICAR and RSR models.  All sites
@@ -127,7 +127,8 @@ spatial.occupancy <-
       if(as.integer(spatial.model$moran.cut)<1  | as.integer(spatial.model$moran.cut)>n.site){
         stop("Invalid value for 'moran.cut' specified. See documentation\n")
       }
-      Q <- Matrix(icar.Q(xy,spatial.model$threshold, rho=1))
+      Q <- icar.Q(xy,spatial.model$threshold, rho=1)
+      Q <- Matrix(Q)
       A <- Matrix(diag(diag(Q)) - Q)
       P <- diag(n.site) - Xz %*% solve(crossprod(Xz), t(Xz))
       Op <- (nrow(A)/sum(A))*(P %*% (A %*% P))
@@ -225,7 +226,7 @@ spatial.occupancy <-
       #Update b
       idx <- visit$site.idx %in% (site$site.idx[z==1])
       #Q.b <- crossprod(Xy[idx,])
-      V.b.inv <- zapsmall(crossprod(Xy[idx,],Xy[idx,]) + Q.b)
+      V.b.inv <- crossprod(Xy[idx,]) + Q.b
       m.b <- solve(V.b.inv, crossprod(Xy[idx,],y.tilde[idx])+crossprod(Q.b,mu.b))
       b <- m.b + solve(chol(V.b.inv), rnorm(ncol(Xy),0,1))
       

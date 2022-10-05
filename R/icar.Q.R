@@ -20,6 +20,17 @@ function(xy, threshold, rho=1, fun=FALSE)
 {
 	thresh <- threshold
 	distmat <- as.matrix(dist(cbind(xy[,1], xy[,2])))
+	maxd <- max(distmat)
+	mind <- min(distmat[distmat>0])
+	if(thresh>=maxd) stop(
+	  paste0("Threshold provided was larger than the maximum distance between sites.",
+	         " Please choose something between ", mind, " and ",maxd,"!")
+	)
+	if(thresh<=mind) stop(
+	  paste0("Threshold provided was smaller than the minimum distance between sites.",
+	         " Please choose something between ", mind, " and ",maxd,"!")
+	)
+	
 	dist.ind <- (distmat <= thresh)*1.0
 	diag(dist.ind) <- 0
 	num <- as.vector(apply(dist.ind,1,sum))

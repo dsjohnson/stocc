@@ -6,9 +6,14 @@
 #' process models with a probit model instead of the traditional logit based
 #' model.
 #' 
-#' \tabular{ll}{ Package: \tab stocc\cr Type: \tab Package\cr Version: \tab
-#' 1.30\cr Date: \tab August 21, 2015\cr License: \tab CC0\cr LazyLoad: \tab
-#' yes\cr }
+#' \tabular{ll}{ 
+#' Package: \tab stocc\cr 
+#' Type: \tab Package\cr 
+#' Version: \tab 1.32\cr 
+#' Date: \tab October 5, 2021\cr 
+#' License: \tab CC0\cr 
+#' LazyLoad: \tab yes\cr 
+#' }
 #' 
 #' @name stocc-package
 #' @aliases stocc-package stocc

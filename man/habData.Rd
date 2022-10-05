@@ -4,12 +4,14 @@
 \name{habData}
 \alias{habData}
 \title{A simulated data set of environmental covariates}
-\format{A data frame with 1600 observations on the following 5 variables.
+\format{
+A data frame with 1600 observations on the following 5 variables.
 \describe{ \item{site}{Site labels} 
 \item{x}{Longitude
 coordinate} \item{y}{Latitude coordinate} \item{habCov1}{a
 factor with levels \code{1} \code{2} \code{3}} \item{habCov2}{a numeric
-vector} }}
+vector} }
+}
 \description{
 This data represents a simulated study area. The study area is a 40 x 40
 grid of pixels. There are two variables, a factor variable (e.g., a habitat

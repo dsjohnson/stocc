@@ -4,7 +4,8 @@
 \name{occupancyData}
 \alias{occupancyData}
 \title{Simulated occupancy for the 40 x 40 study area.}
-\format{A data frame with 1600 observations on the following 5 variables.
+\format{
+A data frame with 1600 observations on the following 5 variables.
 \describe{ 
 \item{site}{Site labels} 
 \item{x}{Longitude coordinate} 
@@ -12,7 +13,8 @@
 \item{psi}{True probability of occupancy} 
 \item{psi.fix}{The fixed effects portion of the occupancy process map}
 \item{occ}{True realized occupancy} 
-}}
+}
+}
 \description{
 This data represnts truth with regards to occupancy in the simulated study
 area. The probability of occupancy was simulated as \code{pnorm(0, X%*%gamma

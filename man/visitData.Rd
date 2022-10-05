@@ -4,11 +4,13 @@
 \name{visitData}
 \alias{visitData}
 \title{Simulated occupancy survey data}
-\format{A data frame with 1340 observations on the following 6 variables.
+\format{
+A data frame with 1340 observations on the following 6 variables.
 \describe{ \item{site}{Site labels} \item{x}{Longitude
 coordinate} \item{y}{Latitude coordinate} \item{detCov1}{a
 numeric vector} \item{detCov2}{a factor with levels \code{0} \code{1}
-\code{2} \code{3}} \item{obs}{a numeric vector} }}
+\code{2} \code{3}} \item{obs}{a numeric vector} }
+}
 \description{
 Data set representing a simulated survey of the 40 x 40 study area.
 Approximately 1/3 of the 1600 sites were visited at least once. Those sites

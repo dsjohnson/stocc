@@ -4,8 +4,15 @@
 \alias{spatial.occupancy}
 \title{Fit a spatial occupancy model using Gibbs sampling}
 \usage{
-spatial.occupancy(detection.model, occupancy.model, spatial.model, so.data,
-  prior, control, initial.values = NULL)
+spatial.occupancy(
+  detection.model,
+  occupancy.model,
+  spatial.model,
+  so.data,
+  prior,
+  control,
+  initial.values = NULL
+)
 }
 \arguments{
 \item{detection.model}{A formula object describing the detection portion of
@@ -19,7 +26,7 @@ model are located in the \code{site} data frame of an \code{so.data} object.}
 \item{spatial.model}{A named list object describing the spatial component of
 the occupancy process. Currently the only possible models are ICAR, restricted spatial regression,
 process convolution models, and no spatial model (i.e., eta = 0). Thus, \code{spatial.model=list(model="icar",
-threshold= , rho=1)}, \code{spatial.model=list(model="rsr", threshold=, moran.cut=)}, 
+threshold= )}, \code{spatial.model=list(model="rsr", threshold=, moran.cut=)}, 
 \code{spatial.model=list(model="proc.conv", knots=)}, and \code{spatial.model=list(model="none")}
 are the only forms that are accepted at present.  The \code{threshold}
 component is used the create neighborhoods in the ICAR and RSR models.  All sites

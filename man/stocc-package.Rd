@@ -16,8 +16,8 @@ model.
 \tabular{ll}{ 
 Package: \tab stocc\cr 
 Type: \tab Package\cr 
-Version: \tab 1.32\cr 
-Date: \tab October 5, 2021\cr 
+Version: \tab 1.4\cr 
+Date: \tab October 5, 2022\cr 
 License: \tab CC0\cr 
 LazyLoad: \tab yes\cr 
 }

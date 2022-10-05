@@ -9,8 +9,8 @@
 #' \tabular{ll}{ 
 #' Package: \tab stocc\cr 
 #' Type: \tab Package\cr 
-#' Version: \tab 1.32\cr 
-#' Date: \tab October 5, 2021\cr 
+#' Version: \tab 1.4\cr 
+#' Date: \tab October 5, 2022\cr 
 #' License: \tab CC0\cr 
 #' LazyLoad: \tab yes\cr 
 #' }
@@ -145,7 +145,9 @@ NULL
     paste(paste(package, version, paste("(",date, ")", sep=""), "\n"), 
           "Type 'demo(package='stocc')' to see a list of demos for this package.\n",
           "BE CAREFUL! The MCMC code can take a while to run if you start the demo.\n",
-          "The raw code for the demos can be found by typing 'system.file('demo', package='stocc')'")
+          "The raw code for the demos can be found by typing 'system.file('demo', package='stocc')\n",
+          "\n",
+          "WARNING: v 1.4 is the last maintained version of {stocc} on CRAN!")
                       )
 
 }
